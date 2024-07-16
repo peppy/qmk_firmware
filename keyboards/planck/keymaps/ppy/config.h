@@ -2,7 +2,6 @@
 
 #define NO_DEBUG
 #define NO_PRINT
-#define AUDIO_CLICKY
 #define NO_USB_STARTUP_CHECK
 
 #define MK_VARIANT MK_TYPE_KINETIC
