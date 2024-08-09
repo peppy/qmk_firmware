@@ -425,6 +425,8 @@ bool process_ctrl_esc(uint16_t keycode, keyrecord_t *record) {
                 if (timer_elapsed(last_key_time) < 200
                         // ..and no modifiers are held..
                         && get_mods() == 0
+                        // last key wasn't space (ie. `vi <C-t>` in terminal)
+                        && last_key_code != KC_SPC
                         // ..and either the last key was CTRL_ESC (two pressed in fast succession)..
                         && (last_key_code == CTRL_ESC
                         // ..or we are pretty sure that we're performing a vim normal move return.
