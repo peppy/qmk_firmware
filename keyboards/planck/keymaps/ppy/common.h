@@ -21,6 +21,12 @@ enum planck_keycodes {
     MD_CODE,
     MEH_ENT,
     LOCK,
+    S1,
+    S2,
+    S3,
+    S4,
+    S5,
+    S6,
 };
 
 #define FKEYS MO(_FKEYS)
