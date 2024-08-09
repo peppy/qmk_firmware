@@ -6,7 +6,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
             CTRL_ESC,KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    NAV_SCLN,KC_QUOT,
             KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-            _______, _______, _______, KC_LGUI, FKEYS,   SYMBOL,  KC_SPC,  MEH_ENT, KC_LALT, _______, _______, _______),
+            S1,      S2,      S3,      KC_LGUI, FKEYS,   SYMBOL,  KC_SPC,  MEH_ENT, KC_LALT, S4,      S5,      S6),
 
     // Every symbol and number required for coding and every-day use.
     [_SYMBOL] = LAYOUT_planck_grid(
@@ -117,6 +117,14 @@ float song_kvm_1[][2] = SONG(S__NOTE(_E5),S__NOTE(_C5));
 
 float song_game_0[][2] = SONG(S__NOTE(_C6),S__NOTE(_C5));
 float song_game_1[][2] = SONG(S__NOTE(_C5),S__NOTE(_C6));
+
+float circles1[][2] = SONG(B__NOTE(_E5));
+float circles2[][2] = SONG(E__NOTE(_E5));
+float circles3[][2] = SONG(E__NOTE(_G5));
+float circles4[][2] = SONG(E__NOTE(_F5));
+float circles5[][2] = SONG(E__NOTE(_E5));
+float circles6[][2] = SONG(E__NOTE(_D5));
+float circles7[][2] = SONG(E__NOTE(_C5));
 
 void set_game_mode(bool state, bool update_target_state)
 {
@@ -622,6 +630,49 @@ bool process_nav_scln(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
+bool process_specials(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case S1:
+            if (record->event.pressed)
+                PLAY_SONG(circles1);
+            else
+                PLAY_SONG(circles2);
+            return false;
+        case S2:
+            if (!record->event.pressed)
+                return true;
+
+            PLAY_SONG(circles3);
+            return false;
+        case S3:
+            if (!record->event.pressed)
+                return true;
+
+            PLAY_SONG(circles4);
+            return false;
+        case S4:
+            if (!record->event.pressed)
+                return true;
+
+            PLAY_SONG(circles5);
+            return false;
+        case S5:
+            if (!record->event.pressed)
+                return true;
+
+            PLAY_SONG(circles6);
+            return false;
+        case S6:
+            if (!record->event.pressed)
+                return true;
+
+            PLAY_SONG(circles7);
+            return false;
+    }
+
+    return true;
+}
+
 bool process_left_shift(uint16_t keycode, keyrecord_t *record) {
     if (keycode == KC_LSFT)
     {
@@ -832,6 +883,8 @@ bool process_all_custom(uint16_t keycode, keyrecord_t *record) {
     // in game mode, all excess processing is skipped (mainly to avoid unwanted macro / helper triggers).
     if (!(IS_GAME))
     {
+        if (!process_specials(keycode, record)) return false;
+
         // delay shift down presses until next key.
         if (!process_left_shift(keycode, record)) return false;
         if (!process_right_shift(keycode, record)) return false;
