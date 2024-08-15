@@ -12,5 +12,5 @@ USER_NAME := ppy
  # typing):
  # sym_eager_pr: 990Hz
  # asym_eager_defer_pk: 955Hz
-# DEBOUNCE_TYPE = asym_eager_defer_pk
+DEBOUNCE_TYPE = asym_eager_defer_pk
 
