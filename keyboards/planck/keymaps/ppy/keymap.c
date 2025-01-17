@@ -350,7 +350,7 @@ bool process_meh(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MEH_ENT:
             if (record->event.pressed) {
-                if (timer_elapsed(last_key_time) < 200 || get_highest_layer(layer_state) != _BASE)
+                if (last_key_code != KC_LGUI && (timer_elapsed(last_key_time) < 200 || get_highest_layer(layer_state) != _BASE))
                 {
                     register_code(KC_ENT);
                     meh_activated = 3;
@@ -365,7 +365,8 @@ bool process_meh(uint16_t keycode, keyrecord_t *record) {
                 switch (meh_activated)
                 {
                     case 1:
-                        tap_code16(KC_ENT);
+                        if (timer_elapsed(last_key_time) < 200)
+                            tap_code16(KC_ENT);
                         break;
 
                     case 2:
@@ -384,9 +385,6 @@ bool process_meh(uint16_t keycode, keyrecord_t *record) {
             return true;
 
         default:
-            if (!record->event.pressed)
-                break;
-
             switch (meh_activated)
             {
                 case 1:
