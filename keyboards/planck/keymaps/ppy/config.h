@@ -18,7 +18,7 @@
 #endif
 
 // for sanwa keyboard emulation KVM
-#undef NKRO_ENABLE
+// #undef NKRO_ENABLE
 
 #define USB_POLLING_INTERVAL_MS 5
-#define DEBOUNCE 10
+#define DEBOUNCE 5
