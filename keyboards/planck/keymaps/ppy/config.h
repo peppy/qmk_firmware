@@ -21,4 +21,4 @@
 // #undef NKRO_ENABLE
 
 #define USB_POLLING_INTERVAL_MS 5
-#define DEBOUNCE 5
+#define DEBOUNCE 8
