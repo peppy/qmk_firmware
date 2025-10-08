@@ -17,10 +17,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // Function keys, mouse emulation and less commonly used special keys.
     [_FKEYS] = LAYOUT_planck_grid(
-            _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   _______, _______, _______, KC_MS_U, _______, _______, KC_DEL,
-            KC_LCTL, KC_F5,   KC_F6,   KC_F7,   KC_F8,   _______, KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_U, _______,
+            _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   _______, _______, _______, MS_UP,   _______, _______, KC_DEL,
+            KC_LCTL, KC_F5,   KC_F6,   KC_F7,   KC_F8,   _______, MS_WHLD, MS_LEFT, MS_DOWN, MS_RGHT, MS_WHLU, _______,
             _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, _______, KC_F13,  KC_F14,  KC_F15,  KC_F16,  _______,
-            _______, _______, _______, _______, _______, _______, KC_ACL0, KC_BTN1, KC_BTN2, _______, _______, _______),
+            _______, _______, _______, _______, _______, _______, _______, MS_BTN1, MS_BTN2, _______, _______, _______),
 
     // Loosely vim-based cursor and document navigation keys.
     // Accessed by holding semicolon.
@@ -42,8 +42,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Keyboard level commands.
     // Accessed via FKEY+SYMBOL keys.
     [_ADJUST] = LAYOUT_planck_grid(
-            MD_CODE, RGB_HUI, RGB_HUD, RGB_TOG, DM_REC1, _______, _______, _______, _______, _______, _______, _______,
-            LOCK,    RGB_SAI, RGB_SAD, _______, DM_PLY1, GAME,    _______, _______, _______, CAP_LST, CAP_IMG, CAP_MOV,
+            MD_CODE, UG_HUEU, UG_HUED, UG_TOGG, DM_REC1, _______, _______, _______, _______, _______, _______, _______,
+            LOCK,    UG_SATU, UG_SATD, _______, DM_PLY1, GAME,    _______, _______, _______, CAP_LST, CAP_IMG, CAP_MOV,
             QK_BOOT, _______, _______, _______, _______, _______, _______, _______, _______, KVM_SWT, COPYADDR,KC_MPLY,
             _______, _______, _______, _______, _______, _______, EMOJI,   _______, _______, _______, _______, _______),
 };
