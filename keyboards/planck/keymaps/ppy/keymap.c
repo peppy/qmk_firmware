@@ -770,7 +770,7 @@ bool process_macros(uint16_t keycode, keyrecord_t *record) {
             return false;
 
         case MD_CODE:
-            SEND_STRING("```csharp" SS_LSFT(SS_TAP(X_ENT)) SS_LSFT(SS_TAP(X_ENT)) "```");
+            SEND_STRING("```" SS_LSFT(SS_TAP(X_ENT)) SS_LSFT(SS_TAP(X_ENT)) "```");
             SEND_STRING(SS_TAP(X_UP));
             return false;
 
